@@ -6,7 +6,7 @@
 function reverse(array) {
     const reverseArray = [];
     for (let i = array.length - 1; i >= 0; i--) {
-        reverseArray[array.length - 1 - i] = array[i];
+        reverseArray.push[array.length - 1 - i] = array[i];
     }
     return reverseArray;
 }
