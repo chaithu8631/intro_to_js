@@ -13,4 +13,4 @@ function filterBelow(array, threshold) {
     return filterArray;
 }
 
-console.log(filterBelow([1,3,2,4,5,8,7,6,9], 5));
+console.log(filterBelow([6, 2, 3, 1, 4, 7], 3));
