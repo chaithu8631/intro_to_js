@@ -9,4 +9,5 @@ function findIndex(array, element) {
     }
     return -1;
 }
+
 console.log(findIndex(["apple", "cake", "tea", "coffee", "tea"], "tea"));
