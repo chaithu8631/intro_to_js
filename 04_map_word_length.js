@@ -10,5 +10,4 @@ function mapLengths(words) {
     return wordLength;
 }
 
-const words = ["dog","bow bow","cat","meow"];
-console.log(mapLengths(words));
+console.log(mapLengths(["apple", "cat", "Four"]));
