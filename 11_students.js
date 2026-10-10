@@ -1,10 +1,14 @@
-function studentScoredMoreThan70(students){
+function studentScoredAtLeast70(students){
     const studentNames=[];
     for(let i=0;i<students.length;i++){
-        if(students[i].marks>=70)
+        if(hasScoredAtLeast70(students, i))
             studentNames.push(students[i].name);
     }
     return studentNames;
+}
+
+function hasScoredAtLeast70(students, i) {
+    return students[i].marks >= 70;
 }
 
 const students = [
@@ -14,4 +18,4 @@ const students = [
   { name: "Vikram", marks: 72 },
 ];
 
-console.log(studentScore70(students));
+console.log(studentScoredAtLeast70(students));
