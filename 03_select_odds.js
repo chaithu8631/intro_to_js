@@ -13,6 +13,5 @@ function selectOdds(numbers) {
     return oddArray;
 }
 
-const array = [2,4,6];
-
-console.log(selectOdds(array));
+console.log(selectOdds([3, 2, 4, 5, 7]));
+console.log(selectOdds([2, 4, 6]));
