@@ -1,0 +1,15 @@
+// reverse([1, 2, 3]) => [3, 2, 1]
+// reverse([]) => []
+//
+// Do not modify the input array.
+
+function reverse(array) {
+    const reverseArray = [];
+    for (let i = array.length - 1; i >= 0; i--) {
+        reverseArray.push(array[i]);
+    }
+    return reverseArray;
+}
+
+console.log(reverse([1, 2, 3]));
+console.log(reverse([]));
