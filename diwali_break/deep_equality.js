@@ -1,11 +1,3 @@
-function checkString(str1, str2) {
-  return str1 === str2;
-}
-
-function checkNumber(number1, number2) {
-  return number1 === number2;
-}
-
 function isLengthSame(obj1, obj2) {
   return Object.keys(obj1).length === Object.keys(obj2).length;
 }
@@ -31,10 +23,7 @@ function checkObject(obj1, obj2) {
 function isEquals(value1, value2) {
   if (typeof value1 === "object" && typeof value2 === "object")
     return checkObject(value1, value2);
-  if (typeof value1 === "string" && typeof value2 === "string")
-    return checkString(value1, value2);
-  if (typeof value1 === "number" && typeof value2 === "number")
-    return checkNumber(value1, value2);
+  if (typeof value1 === typeof value2) return value1 === value2;
   return false;
 }
 
@@ -110,6 +99,12 @@ const testCases = [
     value1: { a: undefined },
     value2: { b: 1 },
     expected: false,
+  },
+  {
+    title: "undefined in Objects",
+    value1: { a: undefined },
+    value2: { a: undefined },
+    expected: true,
   },
 ];
 for (const testCase of testCases) {
