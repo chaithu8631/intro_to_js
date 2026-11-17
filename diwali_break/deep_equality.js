@@ -1,6 +1,6 @@
 function type(value) {
   if (Array.isArray(value)) return "array";
-  if (value === "null") return "null";
+  if (value === null) return "null";
   if (Number.isNaN(value)) return "NaN";
   return typeof value;
 }
