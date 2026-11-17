@@ -245,20 +245,6 @@ function main() {
   testObjects();
   testUndefinedNullNaN();
   testDifferentTypes();
-  const testCases = [
-    {
-      title: "Same Object,Array in Object",
-      value1: { a: { b: 1 }, c: [8, 6, 3, 1] },
-      value2: { a: { b: 1 }, c: [8, 6, 3, 1] },
-      expected: true,
-    },
-    {
-      title: "undefined in Objects",
-      value1: { a: undefined },
-      value2: { b: 1 },
-      expected: false,
-    },
-  ];
 }
 
 main();
