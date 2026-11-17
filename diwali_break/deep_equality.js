@@ -1,30 +1,29 @@
-function isLengthSame(obj1, obj2) {
+function getType(value) {
+  if (Array.isArray(value)) return "array";
+  if (value === null) return "null";
+  return typeof value;
+}
+function areLengthsSame(obj1, obj2) {
   return Object.keys(obj1).length === Object.keys(obj2).length;
 }
-
-function isKeysSame(keySet1, keySet2) {
-  for (const i in keySet1) {
-    if (keySet1[i] !== keySet2[i]) return false;
+function areKeysSame(keySet1, keySet2) {
+  for (const key of keySet1) {
+    if (!keySet2.includes(key)) return false;
   }
   return true;
 }
+function areEqual(value1, value2) {
+  if (!(getType(value1) === getType(value2))) return false;
+  if (getType(value1) !== "object" && getType(value1) !== "array")
+    return value1 === value2;
 
-function checkObject(obj1, obj2) {
-  if (!isLengthSame(obj1, obj2)) return false;
-  if (!isKeysSame(Object.keys(obj1), Object.keys(obj2))) return false;
+  if (!areLengthsSame(value1, value2)) return false;
+  if (!areKeysSame(Object.keys(value1), Object.keys(value2))) return false;
 
-  for (key in obj1) {
-    const isEqual = isEquals(obj1[key], obj2[key]);
-    if (!isEqual) return false;
+  for (const key in value1) {
+    if (!areEqual(value1[key], value2[key])) return false;
   }
   return true;
-}
-
-function isEquals(value1, value2) {
-  if (typeof value1 === "object" && typeof value2 === "object")
-    return checkObject(value1, value2);
-  if (typeof value1 === typeof value2) return value1 === value2;
-  return false;
 }
 
 const testCases = [
@@ -66,9 +65,15 @@ const testCases = [
   },
   {
     title: "Same Objects",
-    value1: { a: 1 },
-    value2: { a: 1 },
+    value1: { a: 1, b: 2 },
+    value2: { b: 2, a: 1 },
     expected: true,
+  },
+  {
+    title: "obj and arr",
+    value1: [1, 2],
+    value2: [1, 2, 3],
+    expected: false,
   },
   {
     title: "Different Object properties",
@@ -108,7 +113,7 @@ const testCases = [
   },
 ];
 for (const testCase of testCases) {
-  const result = isEquals(testCase.value1, testCase.value2);
+  const result = areEqual(testCase.value1, testCase.value2);
   const icon = result === testCase.expected ? "✅" : "❌";
   console.log(icon, testCase.title);
 }
