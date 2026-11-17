@@ -5,8 +5,8 @@ function type(value) {
   return typeof value;
 }
 
-function areLengthsEqual(obj1, obj2) {
-  return Object.keys(obj1).length === Object.keys(obj2).length;
+function areLengthsEqual(value1, value2) {
+  return value1.length === value2.length;
 }
 
 function areKeysEqual(keySet1, keySet2) {
@@ -17,13 +17,18 @@ function areKeysEqual(keySet1, keySet2) {
 }
 
 function areObjectsEqual(value1, value2) {
-  if (!areLengthsEqual(value1, value2)) return false;
-  if (!areKeysEqual(Object.keys(value1), Object.keys(value2))) return false;
-
+  const keySet1 = Object.keys(value1);
+  const keySet2 = Object.keys(value2);
+  if (!areLengthsEqual(keySet1, keySet2)) return false;
+  if (!areKeysEqual(keySet1, keySet2)) return false;
   for (const key in value1) {
     if (!areEqual(value1[key], value2[key])) return false;
   }
   return true;
+}
+
+function areValuesEqual(value1, value2) {
+  return value1 === value2;
 }
 
 function areEqual(value1, value2) {
@@ -38,10 +43,6 @@ function areEqual(value1, value2) {
       return true;
   }
   return areValuesEqual(value1, value2);
-}
-
-function areValuesEqual(value1, value2) {
-  return value1 === value2;
 }
 
 function main() {
@@ -147,6 +148,12 @@ function main() {
       value1: undefined,
       value2: undefined,
       expected: true,
+    },
+    {
+      title: "null and obj",
+      value1: null,
+      value2: { a: null },
+      expected: false,
     },
   ];
   for (const testCase of testCases) {
