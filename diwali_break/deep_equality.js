@@ -26,94 +26,99 @@ function areEqual(value1, value2) {
   return true;
 }
 
-const testCases = [
-  {
-    title: "Same Numbers",
-    value1: 1,
-    value2: 1,
-    expected: true,
-  },
-  {
-    title: "Same Characters",
-    value1: "a",
-    value2: "a",
-    expected: true,
-  },
-  {
-    title: "Empty Arrays",
-    value1: [],
-    value2: [],
-    expected: true,
-  },
-  {
-    title: "Same Arrays",
-    value1: [1],
-    value2: [1],
-    expected: true,
-  },
-  {
-    title: "Different Arrays",
-    value1: [1, 2],
-    value2: [1],
-    expected: false,
-  },
-  {
-    title: "Different number and string",
-    value1: 1,
-    value2: "1",
-    expected: false,
-  },
-  {
-    title: "Same Objects",
-    value1: { a: 1, b: 2 },
-    value2: { b: 2, a: 1 },
-    expected: true,
-  },
-  {
-    title: "obj and arr",
-    value1: [1, 2],
-    value2: [1, 2, 3],
-    expected: false,
-  },
-  {
-    title: "Different Object properties",
-    value1: { a: 1 },
-    value2: { b: 1 },
-    expected: false,
-  },
-  {
-    title: "Same Array in Object",
-    value1: { a: [1] },
-    value2: { a: [1] },
-    expected: true,
-  },
-  {
-    title: "Same Object in Object",
-    value1: { a: { b: 1 } },
-    value2: { a: { b: 1 } },
-    expected: true,
-  },
-  {
-    title: "Same Object,Array in Object",
-    value1: { a: { b: 1 }, c: [8, 6, 3, 1] },
-    value2: { a: { b: 1 }, c: [8, 6, 3, 1] },
-    expected: true,
-  },
-  {
-    title: "undefined in Objects",
-    value1: { a: undefined },
-    value2: { b: 1 },
-    expected: false,
-  },
-  {
-    title: "undefined in Objects",
-    value1: { a: undefined },
-    value2: { a: undefined },
-    expected: true,
-  },
-];
-for (const testCase of testCases) {
-  const result = areEqual(testCase.value1, testCase.value2);
-  const icon = result === testCase.expected ? "✅" : "❌";
-  console.log(icon, testCase.title);
+function main() {
+  const testCases = [
+    {
+      title: "Same Numbers",
+      value1: 1,
+      value2: 1,
+      expected: true,
+    },
+    {
+      title: "Same Characters",
+      value1: "a",
+      value2: "a",
+      expected: true,
+    },
+    {
+      title: "Empty Arrays",
+      value1: [],
+      value2: [],
+      expected: true,
+    },
+    {
+      title: "Same Arrays",
+      value1: [1],
+      value2: [1],
+      expected: true,
+    },
+    {
+      title: "Different Arrays",
+      value1: [1, 2],
+      value2: [1],
+      expected: false,
+    },
+    {
+      title: "Different number and string",
+      value1: 1,
+      value2: "1",
+      expected: false,
+    },
+    {
+      title: "Same Objects",
+      value1: { a: 1, b: 2 },
+      value2: { b: 2, a: 1 },
+      expected: true,
+    },
+    {
+      title: "obj and arr",
+      value1: [1, 2],
+      value2: [1, 2, 3],
+      expected: false,
+    },
+    {
+      title: "Different Object properties",
+      value1: { a: 1 },
+      value2: { b: 1 },
+      expected: false,
+    },
+    {
+      title: "Same Array in Object",
+      value1: { a: [1] },
+      value2: { a: [1] },
+      expected: true,
+    },
+    {
+      title: "Same Object in Object",
+      value1: { a: { b: 1 } },
+      value2: { a: { b: 1 } },
+      expected: true,
+    },
+    {
+      title: "Same Object,Array in Object",
+      value1: { a: { b: 1 }, c: [8, 6, 3, 1] },
+      value2: { a: { b: 1 }, c: [8, 6, 3, 1] },
+      expected: true,
+    },
+    {
+      title: "undefined in Objects",
+      value1: { a: undefined },
+      value2: { b: 1 },
+      expected: false,
+    },
+    {
+      title: "undefined in Objects",
+      value1: { a: undefined },
+      value2: { a: undefined },
+      expected: true,
+    },
+  ];
+  for (const testCase of testCases) {
+    const result = areEqual(testCase.value1, testCase.value2);
+    const icon = result === testCase.expected ? "✅" : "❌";
+    console.log(icon, testCase.title);
+  }
 }
+
+
+main();
