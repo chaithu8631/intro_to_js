@@ -180,6 +180,12 @@ function testObjects() {
     { a: 5, b: [3, 4, 5, 6] },
     { a: 5, b: [7, 8, 9, 3] },
   );
+  test(
+    "undefined as value in object should be Unequal",
+    false,
+    { a: undefined, b: [7, 8, 9, 3] },
+    { c: 5, b: [7, 8, 9, 3] },
+  );
 }
 function testStrings() {
   test("Empty Strings should be equal", true, "", "");
