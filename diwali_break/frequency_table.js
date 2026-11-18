@@ -1,23 +1,20 @@
-function isExist(element, table) {
-  for (const item of Object.keys(table)) {
-    // console.log(element, item);
-    // console.log(element == item);
-    if (item === element) return true;
-  }
-  return false;
-}
-function getFrequency(array) {
-  const frequency = {};
-  for (const element of array) {
-    // console.log(element);
-    
-    if (isExist(element, frequency)) {
-      frequency[element] = frequency[element] + 1;
-    } else frequency[element] = 1;
+function getFrequencyOfElement(element, array) {
+  let frequency = 0;
+  for (const item of array) {
+    if (item === element) frequency++;
   }
   return frequency;
 }
-const array = ["apple", "banana", "apple", "apple", "orange", "banana"];
-const array1 = [1, 2, 3, 1, 2, 4, 1, 2, 3, 4];
-console.log(getFrequency(array));
-// console.log(getFrequency(array1));
+function getFrequencyTable(array) {
+  const frequency = {};
+  for (const element of array) {
+    if (!(element in frequency)) {
+      frequency[element] = getFrequencyOfElement(element,array);
+    }
+  }
+  return frequency;
+}
+const stringArray = ["apple", "banana", "apple", "apple", "orange", "banana"];
+const numberArray = [1, 2, 3, 1, 2, 4, 1, 2, 3, 4];
+console.log(getFrequencyTable(stringArray));
+console.log(getFrequencyTable(numberArray));
