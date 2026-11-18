@@ -9,7 +9,7 @@ function isExist(element, table) {
 function getFrequency(array) {
   const frequency = {};
   for (const element of array) {
-    console.log(element);
+    // console.log(element);
     
     if (isExist(element, frequency)) {
       frequency[element] = frequency[element] + 1;
@@ -19,5 +19,5 @@ function getFrequency(array) {
 }
 const array = ["apple", "banana", "apple", "apple", "orange", "banana"];
 const array1 = [1, 2, 3, 1, 2, 4, 1, 2, 3, 4];
-// console.log(getFrequency(array));
-console.log(getFrequency(array1));
+console.log(getFrequency(array));
+// console.log(getFrequency(array1));
