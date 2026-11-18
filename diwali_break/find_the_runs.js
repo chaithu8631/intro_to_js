@@ -1,31 +1,29 @@
-function isIncreasing(element1,element2) {
-  return element1<=element2;
+function isIncreasing(element1, element2) {
+  return element1 <= element2;
 }
-function isDecreasing(element1,element2) {
-  return element1>=element2;
-}
-function findRuns(a){
+
+function findRuns(a) {
   const runs = [];
   let currentRuns = [a[0]];
   let hasDirectionChange = false;
-  for(let i=0;i<a.length;i++) {
-    if(!hasDirectionChange) {
-      if(!isIncreasing(a[i],a[i+1])){
+  for (let i = 0; i < a.length - 1; i++) {
+    if (!hasDirectionChange) {
+      if (!isIncreasing(a[i], a[i + 1])) {
         runs.push(currentRuns);
-        currentRuns=[];
+        currentRuns = [];
         hasDirectionChange = true;
       }
-      currentRuns.push(a[i+1]);
-    }
-    else{
-      if(!isDecreasing(a[i],a[i+1])){
+      currentRuns.push(a[i + 1]);
+    } else {
+      if (isIncreasing(a[i], a[i + 1])) {
         runs.push(currentRuns);
-        currentRuns=[];
+        currentRuns = [];
         hasDirectionChange = false;
       }
-      currentRuns.push(a[i+1]);
+      currentRuns.push(a[i + 1]);
     }
   }
+  runs.push(currentRuns);
   return runs;
 }
-console.log(findRuns([1,2,3,4,5,5,5,4,3,4,2,1]));
+console.log(findRuns([1, 2, 3, 4, 5, 5, 5, 4, 3, 4, 2, 1]));
