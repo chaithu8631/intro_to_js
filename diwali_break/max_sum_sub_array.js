@@ -2,7 +2,7 @@ const arraySum = function (numbers) {
   let sum = 0;
   for (const number of numbers) sum += number;
   return sum;
-}
+};
 
 const maxSubArray = function (numbers) {
   let maxSum = arraySum(numbers);
@@ -22,10 +22,10 @@ const maxSubArray = function (numbers) {
 
   return {
     subarray: numbers.slice(subStart, subEnd + 1),
-    maxSum: maxSum,
+    maxSum,
   };
-}
-const arr = [];
+};
+const arr = [1,2,3,4,5];
 const result = maxSubArray(arr);
 
 console.log("Subarray:", result.subarray);
