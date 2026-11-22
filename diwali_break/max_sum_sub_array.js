@@ -11,7 +11,7 @@ function maxSubArray(numbers) {
   let subStart = 0;
   let subEnd = numbers.length - 1;
 
-  for (let j = 0; j < numbers.length - 1; j++) {
+  for (let j = 0; j < numbers.length; j++) {
     for (let k = j; k < numbers.length; k++) {
       const currentSum = arraySum(numbers.slice(j, k + 1));
       if (currentSum > maxSum) {
@@ -27,7 +27,7 @@ function maxSubArray(numbers) {
     maxSum: maxSum,
   };
 }
-const arr = [-2, -1, -3, -5, 6, -6, -4, 4, -1, 2, 1];
+const arr = [-4, 3, -2, -1, 3];
 const result = maxSubArray(arr);
 
 console.log("Subarray:", result.subarray);
